@@ -19,4 +19,12 @@ export class UserService {
     }
     return user;
   }
+
+  findAddress() {
+    return this.users.map((user) => user.alamat);
+  }
+
+  // findAddress() {
+  //   return this.users.
+  // }
 }

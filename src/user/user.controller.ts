@@ -10,6 +10,11 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get('address')
+  findByAddress() {
+    return this.userService.findAddress();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(Number(id));
