@@ -1,21 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { UserController } from './user.controller';
+import { UserService } from './user.service';
 
-@Injectable()
-export class UserService {
-  private users = [
-    { id: 1, name: 'Faqih' },
-    { id: 2, name: 'Jamal' },
-  ];
-
-  findAll() {
-    return this.users;
-  }
-
-  findOne(id: number) {
-    const user = this.users.find((user) => user.id === id);
-    if (!user) {
-      throw new NotFoundException('User not found');
-    }
-    return user;
-  }
-}
+@Module({
+  controllers: [UserController],
+  providers: [UserService],
+})
+export class UserModule {}
